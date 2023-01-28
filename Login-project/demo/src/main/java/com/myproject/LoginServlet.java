@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet
         String pass=req.getParameter("userPassLogin");
         // DB u=new DB();
         // boolean b=u.validat(user, pass);
-        if(validat(user, pass))
+        if(DB.checkUesrName_Pass(user, pass,new StringBuilder()))
         {
             req.getRequestDispatcher("welcome").forward(req, resp);
         }
@@ -37,29 +37,30 @@ public class LoginServlet extends HttpServlet
     }
 
 
-    public boolean validat(String username, String pass) 
-    {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("md");
-        EntityManager em=emf.createEntityManager();
-        String queryString = "from users u where u.user_name like :name";
-        Query q=em.createQuery(queryString).setParameter("name", username);
-        int r = q.getFirstResult();
-        List list = q.getResultList();
-        if (r != 0) 
-        {
+    // public boolean validat(String username, String pass) 
+    // {
+    //     // EntityManagerFactory emf = Persistence.createEntityManagerFactory("md");
+    //     // EntityManager em=emf.createEntityManager();
+    //     // String queryString = "from users u where u.user_name like :name";
+    //     // Query q=em.createQuery(queryString).setParameter("name", username);
+    //     // int r = q.getFirstResult();
+    //     // List list = q.getResultList();
 
-            users u = (users) list.get(r);
-            if (u.getPass().equals(pass)) 
-            {
-                return true;
-            } 
-            else
-                return false;
+    //     if (r != 0) 
+    //     {
 
-        } else
-            return false;
+    //         users u = (users) list.get(r);
+    //         if (u.getPass().equals(pass)) 
+    //         {
+    //             return true;
+    //         } 
+    //         else
+    //             return false;
 
-    }
+    //     } else
+    //         return false;
+
+    // }
 }
 
 

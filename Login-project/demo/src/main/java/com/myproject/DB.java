@@ -28,12 +28,12 @@ public class DB {
 
     // }
 
-    boolean checkUesrName_Pass(String userName,String pass,StringBuilder message)
+  static  boolean checkUesrName_Pass(String userName,String pass,StringBuilder message)
     {
          boolean flag = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("md");
         EntityManager em = emf.createEntityManager();
-         jakarta.persistence.Query q = em.createQuery("from users s where s.user_name like :name");     
+        jakarta.persistence.Query q = em.createQuery("from users s where s.user_name like :name");     
          q.setParameter("name",userName);
          List list =  q.getResultList();
          if(list.size() != 0)
