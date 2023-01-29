@@ -23,44 +23,23 @@ public class LoginServlet extends HttpServlet
         PrintWriter out=resp.getWriter();
         String user=req.getParameter("userNameLogin");
         String pass=req.getParameter("userPassLogin");
-        // DB u=new DB();
-        // boolean b=u.validat(user, pass);
-        if(DB.checkUesrName_Pass(user, pass,new StringBuilder()))
+        
+        if(DB.validat(user, pass))
         {
-            req.getRequestDispatcher("welcome").forward(req, resp);
+            out.print("<h1>welcome :"+user+"</h1>");
+            // resp.sendRedirect("users.html");
+            req.getRequestDispatcher("users.html").include(req, resp);
+            
         }
         else
         {
-            out.println("invalde username");
-            req.getRequestDispatcher("index.html").include(req, resp);
+            out.println("invalde username or password");
+            // req.getRequestDispatcher("index.html").include(req, resp);
+            resp.sendRedirect("index.html");
         }
     }
 
 
-    // public boolean validat(String username, String pass) 
-    // {
-    //     // EntityManagerFactory emf = Persistence.createEntityManagerFactory("md");
-    //     // EntityManager em=emf.createEntityManager();
-    //     // String queryString = "from users u where u.user_name like :name";
-    //     // Query q=em.createQuery(queryString).setParameter("name", username);
-    //     // int r = q.getFirstResult();
-    //     // List list = q.getResultList();
-
-    //     if (r != 0) 
-    //     {
-
-    //         users u = (users) list.get(r);
-    //         if (u.getPass().equals(pass)) 
-    //         {
-    //             return true;
-    //         } 
-    //         else
-    //             return false;
-
-    //     } else
-    //         return false;
-
-    // }
 }
 
 

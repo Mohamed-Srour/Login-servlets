@@ -1,5 +1,4 @@
 com\myproject\UserServlet.class
 com\myproject\LoginServlet.class
-com\myproject\PrinterWriter.class
 com\myproject\users.class
 com\myproject\DB.class

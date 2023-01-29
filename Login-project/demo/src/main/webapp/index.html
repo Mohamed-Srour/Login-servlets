@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html>
-    <head>
+
+<head>
+    <meta name="viewport" content="width=device-width,initial scale=1">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <title>login</title>
+</head>
+
+<body>
+    <section id="homepage" data-role="page" data-theme="b">
         
-        <title>login</title>
-    </head>
-    <body>
         <h1>Login</h1><br>
         <form action="login" method="get">
             <label>Username: </label>
@@ -15,9 +20,70 @@
             <br>
             <br>
             <input type="submit" value="Log in">
-        
-            <button type="submit" class="signupbtn">Sign Up</button>
-        </form>
 
-    </body>
+            <a href="#sign" class="ui-btn ui-shadow ui-corner-all">Sign-Up</a>
+        </form>
+    </section>
+
+
+    <section algin="center" id="sign" data-theme="b" data-role="page">
+        <header data-role="header">Sign-Up</header>
+        <article data-role="content">
+
+
+            <form methods="get">
+                <h3>Account Information</h3>
+                <table>
+                    <tr>
+                        <td>
+                            <label>Username*</label>
+                        </td>
+                        <td>
+                            <input type="text" size="25" id="userName" name="value" required><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="">password*</label>
+                        </td>
+                        <td>
+                            <input type="password" size="25" id="password" onchange="validatePassword()"
+                                name="value" required><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="">Confirm password*</label>
+                        </td>
+                        <td>
+                            <input type="password" size="25" id="confirm_password" onkeyup="validatePassword()"
+                                name="value" required><br>
+                        </td>
+                    </tr>
+
+                </table>
+                <!-- Username* <input type="text"  size="25"><br>
+          
+                    Passwrod* <input type="password"  size="25"><br>
+          
+                    Confirm Password* <input type="password"  size="25"><br>
+          
+                    CreditCard* <input type="text"  size="25"><br> -->
+
+                <input class="btn" type="submit" value="Submit">
+                <input class="btn" type="reset" value="Cancel">
+
+            </form>
+
+        </article>
+
+    </section>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js">
+    </script>
+    <script type="text/javascript" src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js">
+    </script>
+    <script src="main.js"></script>
+</body>
+
 </html>
